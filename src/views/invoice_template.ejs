@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice <%= invoiceData.invoiceNumber %></title>
+  <link rel="stylesheet" href="/css/invoice.css">
+</head>
+<body>
+  <div class="invoice-box">
+    <h1>Invoice</h1>
+    <div class="company-details">
+      <strong><%= invoiceData.companyName %></strong>
+      <p>Date: <%= invoiceData.date %></p>
+      <p>Invoice #: <%= invoiceData.invoiceNumber %></p>
+    </div>
+
+    <div class="client-details">
+      <p>Billed To: <%= invoiceData.clientName %></p>
+      <p><%= invoiceData.clientAddress %></p>
+    </div>
+
+    <table class="items">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% invoiceData.items.forEach(function(item) { %>
+          <tr>
+            <td><%= item.description %></td>
+            <td><%= item.quantity %></td>
+            <td>$<%= item.unitPrice %></td>
+            <td>$<%= item.quantity * item.unitPrice %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <p>Subtotal: $<%= invoiceData.subtotal %></p>
+      <p>Tax (10%): $<%= invoiceData.subtotal * invoiceData.taxRate %></p>
+      <strong>Total: $<%= invoiceData.total %></strong>
+    </div>
+  </div>
+</body>
+</html>

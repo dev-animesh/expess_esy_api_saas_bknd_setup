@@ -1,0 +1,89 @@
+import puppeteer from 'puppeteer';
+import nodemailer from 'nodemailer';
+import fs from 'fs';
+
+
+router.get('/v1/invoice', async (req, res) => {
+    const invoiceData = {
+        invoiceNumber: 'INV-001',
+        date: '2024-09-06',
+        companyName: 'MyCompany LLC',
+        clientName: 'John Doe',
+        clientAddress: '123 Main Street, City, Country',
+        items: [
+            { description: 'Product 1', quantity: 2, unitPrice: 50 },
+            { description: 'Product 2', quantity: 1, unitPrice: 150 },
+            { description: 'Product 3', quantity: 5, unitPrice: 30 },
+        ],
+        subtotal: 410,
+        taxRate: 0.1, // 10% tax
+        total: 451,
+    };
+
+    try {
+        // Render the invoice_template EJS to HTML
+        const html = await new Promise((resolve, reject) => {
+            res.render('invoice_template', { invoiceData }, (err, data) => {
+                if (err) reject(err);
+                resolve(data);
+            });
+        });
+
+        // Launch Puppeteer to generate the PDF
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+
+        await page.setContent(html, { waitUntil: 'networkidle0' });
+
+        // Generate the PDF
+        const pdfBuffer = await page.pdf({
+            format: 'A4',
+            printBackground: true,
+        });
+
+        await browser.close();
+
+        // Save the PDF temporarily to attach it to the email
+        const filePath = './invoice.pdf'; // Path where the PDF will be temporarily stored
+        fs.writeFileSync(filePath, pdfBuffer);
+
+        // Send the email with the PDF attached
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'your-email@gmail.com',
+                pass: 'your-email-password'
+            }
+        });
+
+        const mailOptions = {
+            from: 'your-email@gmail.com',
+            to: 'recipient-email@example.com',
+            subject: 'Invoice PDF',
+            text: 'Please find the attached invoice PDF.',
+            attachments: [
+                {
+                    filename: 'invoice.pdf',
+                    path: filePath,
+                    contentType: 'application/pdf'
+                }
+            ]
+        };
+
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error('Error sending email:', err);
+                return res.status(500).send('Failed to send email');
+            }
+
+            // Remove the temporary file after sending the email
+            fs.unlinkSync(filePath);
+
+            res.send('Email sent successfully');
+        });
+
+    } catch (error) {
+        console.error('Error generating or sending PDF:', error);
+        res.status(500).send('Error generating or sending PDF');
+    }
+});

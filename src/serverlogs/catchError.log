@@ -1,0 +1,26 @@
+01/Sep/2024 || 20:02:40 || GMT+05:30 - Error: This is error
+Error: This is error
+    at file:///home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/src/controller/testController.js:28:15
+    at Layer.handle [as handle_request] (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:47:12)
+
+01/Sep/2024 || 20:02:54 || GMT+05:30 - Error: This is error
+Error: This is error
+    at file:///home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/src/controller/testController.js:28:15
+    at Layer.handle [as handle_request] (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/animesh/Documents/MY_PERSONAL_INFO/MY_PERSONAL/Reusable_Code/generic_backend/node_modules/express/lib/router/index.js:47:12)
+

@@ -1,0 +1,46 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+.invoice-box {
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.company-details,
+.client-details,
+.totals {
+  margin-bottom: 20px;
+}
+
+table.items {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table.items th,
+table.items td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.totals p {
+  text-align: right;
+}
+
+.totals strong {
+  font-size: 18px;
+  text-align: right;
+  display: block;
+}
